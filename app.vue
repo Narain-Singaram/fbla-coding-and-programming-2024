@@ -9,6 +9,7 @@
 <script>
 import SearchFilterBar from "/SearchFilterBar.vue";
 import PartnerList from "/PartnerList.vue";
+import partnersData from './partners.json'; // Import the JSON file
 
 export default {
   components: {
@@ -17,21 +18,7 @@ export default {
   },
   data() {
     return {
-      partners: [
-        {
-          id: 1,
-          name: "Local Business A",
-          type: "Business",
-          contact: "John Doe"
-        },
-        {
-          id: 2,
-          name: "Community Organization B",
-          type: "Community",
-          contact: "Jane Smith"
-        },
-        // Add more partner data here
-      ],
+      partners: partnersData, // Use the imported data
       searchQuery: ""
     };
   },
