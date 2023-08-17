@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Local Business A",
+    "type": "Business",
+    "contact": "John Doe"
+  },
+  {
+    "id": 2,
+    "name": "Community Organization B",
+    "type": "Community",
+    "contact": "Jane Smith"
+  }
+]
