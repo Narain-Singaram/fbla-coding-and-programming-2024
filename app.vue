@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Local Partners Information</h1>
+    <h1>AllySynergy</h1>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
   </div>

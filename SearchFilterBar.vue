@@ -1,18 +1,24 @@
 <template>
   <div class="search-filter-bar">
-    <input
-      v-model="searchQuery"
-      @input="handleSearch"
-      @focus="showSuggestions = true"
-      @blur="showSuggestions = false"
-      class="search-input"
-      placeholder="Search partners"
-    />
-    <ul v-if="showSuggestions" class="autocomplete-list">
-      <li v-for="suggestion in autocompleteSuggestions" :key="suggestion" @click="selectSuggestion(suggestion)">
-        {{ suggestion }}
-      </li>
-    </ul>
+    <div class="search-input-wrapper">
+      <input
+        v-model="searchQuery"
+        @input="handleSearch"
+        @focus="showSuggestions = true"
+        @blur="hideSuggestions"
+        class="search-input"
+        placeholder="Search partners"
+      />
+      <ul v-if="showSuggestions" class="autocomplete-list">
+        <li
+          v-for="suggestion in autocompleteSuggestions"
+          :key="suggestion"
+          @click="selectSuggestion(suggestion)"
+        >
+          {{ suggestion }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -23,19 +29,19 @@ export default {
       searchQuery: "",
       showSuggestions: false,
       partners: [
-    {
-      "id": 1,
-      "name": "Local Business A",
-      "type": "Business",
-      "contact": "John Doe"
-    },
-    {
-      "id": 2,
-      "name": "Community Organization B",
-      "type": "Community",
-      "contact": "Jane Smith"
-    }
-  ] // Your partner data array
+  {
+    "id": 1,
+    "name": "Local Business A",
+    "type": "Business",
+    "contact": "John Doe"
+  },
+  {
+    "id": 2,
+    "name": "Community Organization B",
+    "type": "Community",
+    "contact": "Jane Smith"
+  }
+] // Your partner data array
     };
   },
   computed: {
@@ -50,10 +56,17 @@ export default {
   methods: {
     handleSearch() {
       this.$emit("search", this.searchQuery);
+      this.showSuggestions = true; // Show suggestions as you type
     },
     selectSuggestion(suggestion) {
       this.searchQuery = suggestion;
-      this.showSuggestions = false;
+      this.hideSuggestions(); // Hide suggestions when a suggestion is selected
+    },
+    hideSuggestions() {
+      // Delay hiding suggestions to allow time for a click on a suggestion to register
+      setTimeout(() => {
+        this.showSuggestions = false;
+      }, 200);
     }
   }
 };
@@ -61,6 +74,18 @@ export default {
 
 <style scoped>
 /* ... Existing styles ... */
+
+input {
+  padding: 2px 3px; 
+  background: red;
+  display: block;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
 
 .autocomplete-list {
   list-style: none;
@@ -73,6 +98,7 @@ export default {
   border-top: none;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Make the suggestions appear above the input */
 }
 
 .autocomplete-list li {
