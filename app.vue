@@ -1,42 +1,30 @@
 <template>
   <div>
-    <h1>AllySynergy</h1>
+    <h1>Local Partners Information</h1>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
   </div>
 </template>
 
-<script>
-import SearchFilterBar from "/SearchFilterBar.vue";
-import PartnerList from "/PartnerList.vue";
-import partnersData from './partners.json'; // Import the JSON file
+<script setup>
+import partnerData from "@/assets/partners.json";
 
-export default {
-  components: {
-    SearchFilterBar,
-    PartnerList
-  },
-  data() {
-    return {
-      partners: partnersData, // Use the imported data
-      searchQuery: ""
-    };
-  },
-  computed: {
-    filteredPartners() {
-      return this.partners.filter(partner => {
-        return (
-          partner.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          partner.type.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          partner.contact.toLowerCase().includes(this.searchQuery.toLowerCase())
-        );
-      });
-    }
-  },
-  methods: {
-    performSearch(query) {
-      this.searchQuery = query;
-    }
-  }
-};
+const partners = ref(partnerData);
+const searchQuery = ref("");
+
+const filteredPartners = computed(() => {
+  return partners.value.filter(partner => {
+    return (
+      partner.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      partner.type.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      partner.contact.toLowerCase().includes(searchQuery.value.toLowerCase())
+    );
+  });
+});
+
+function performSearch(query) {
+  searchQuery.value = query;
+}
 </script>
+
+

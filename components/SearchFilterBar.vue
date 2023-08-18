@@ -19,22 +19,19 @@
           {{ suggestion }}
         </li>
       </ul>
+      <p v-if="showNoResultsMessage" class="no-results-message">No results found.</p>
     </div>
-    <ul v-if="showNoResultsMessage" class="no-results-list">
-      <li class="no-results-item">No results found.</li>
-    </ul>
   </div>
 </template>
 
 <script>
-import partnersData from './partners.json';
+import partnersData from '@/assets/partners.json';
 
 export default {
   data() {
     return {
       searchQuery: "",
       showSuggestions: false,
-      selectedPartner: null, // New data property
       partners: partnersData
     };
   },
@@ -52,14 +49,12 @@ export default {
   },
   methods: {
     handleSearch() {
-      this.selectedPartner = null; // Reset selectedPartner when search query changes
       this.$emit("search", this.searchQuery);
       this.showSuggestions = true;
     },
     selectSuggestion(suggestion) {
       this.searchQuery = suggestion;
-      this.selectedPartner = this.partners.find(partner => partner.name.toLowerCase() === suggestion.toLowerCase());
-      this.showSuggestions = false;
+      this.hideSuggestions();
     },
     hideSuggestions() {
       setTimeout(() => {
@@ -69,7 +64,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped>
 .search-filter-bar {

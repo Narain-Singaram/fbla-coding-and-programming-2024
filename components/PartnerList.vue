@@ -1,5 +1,5 @@
 <template>
-  <div class="partner-list">
+  <div class="partner-list bg-red-200">
     <ul class="partner-items">
       <li v-for="partner in partners" :key="partner.id" class="partner-item">
         <h3 class="partner-name">{{ partner.name }}</h3>
