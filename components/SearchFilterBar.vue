@@ -24,45 +24,39 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import partnersData from '@/assets/partners.json';
 
-export default {
-  data() {
-    return {
-      searchQuery: "",
-      showSuggestions: false,
-      partners: partnersData
-    };
-  },
-  computed: {
-    autocompleteSuggestions() {
-      return this.partners
-        .filter(partner =>
-          partner.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-        )
-        .map(partner => partner.name);
-    },
-    showNoResultsMessage() {
-      return this.showSuggestions && this.searchQuery.length > 0 && this.autocompleteSuggestions.length === 0;
-    }
-  },
-  methods: {
-    handleSearch() {
-      this.$emit("search", this.searchQuery);
-      this.showSuggestions = true;
-    },
-    selectSuggestion(suggestion) {
-      this.searchQuery = suggestion;
-      this.hideSuggestions();
-    },
-    hideSuggestions() {
-      setTimeout(() => {
-        this.showSuggestions = false;
-      }, 200);
-    }
-  }
-};
+const emit = defineEmits([ "search" ]);
+
+const searchQuery = ref("");
+const showSuggestions = ref(false);
+
+const autocompleteSuggestions = computed(() => {
+  return partnersData.filter(partner => {
+    partner.name.toLowerCase().includes(searchQuery.value.toLowerCase());
+  }).map(partner => partner.name);
+});
+
+const showNoResultsMessage = computed(() => {
+  return showSuggestions.value && searchQuery.value.length > 0 && autocompleteSuggestions.value.length === 0;
+});
+
+function handleSearch() {
+  emit("search", searchQuery.value);
+  showSuggestions.value = true;
+}
+
+function selectSuggestion(suggestion: string) {
+  searchQuery.value = suggestion;
+  hideSuggestions();
+}
+
+function hideSuggestions() {
+  setTimeout(() => {
+    showSuggestions.value = false;
+  }, 200);
+}
 </script>
 
 <style scoped>
