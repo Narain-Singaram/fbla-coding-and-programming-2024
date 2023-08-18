@@ -25,7 +25,7 @@ const filteredPartners = computed(() => {
   });
 });
 
-function performSearch(query) {
+function performSearch(query: string) {
   searchQuery.value = query;
 }
 </script>
