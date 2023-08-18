@@ -1,23 +1,28 @@
 <template>
   <div class="search-filter-bar">
-    <input
-      v-model="searchQuery"
-      @input="handleSearch"
-      @focus="showSuggestions = true"
-      @blur="hideSuggestions"
-      class="search-input"
-      placeholder="Search partners"
-    />
-    <ul v-if="showSuggestions && autocompleteSuggestions.length > 0" class="autocomplete-list">
-      <li
-        v-for="suggestion in autocompleteSuggestions"
-        :key="suggestion"
-        @click="selectSuggestion(suggestion)"
-      >
-        {{ suggestion }}
-      </li>
+    <div class="search-input-wrapper">
+      <input
+        v-model="searchQuery"
+        @input="handleSearch"
+        @focus="showSuggestions = true"
+        @blur="hideSuggestions"
+        class="search-input"
+        placeholder="Search partners"
+      />
+      <ul v-if="showSuggestions && autocompleteSuggestions.length > 0" class="autocomplete-list">
+        <li
+          v-for="suggestion in autocompleteSuggestions"
+          :key="suggestion"
+          @click="selectSuggestion(suggestion)"
+          class="suggestion-item"
+        >
+          {{ suggestion }}
+        </li>
+      </ul>
+    </div>
+    <ul v-if="showNoResultsMessage" class="no-results-list">
+      <li class="no-results-item">No results found.</li>
     </ul>
-    <p v-if="showNoResultsMessage" class="no-results-message">No results found.</p>
   </div>
 </template>
 
@@ -29,6 +34,7 @@ export default {
     return {
       searchQuery: "",
       showSuggestions: false,
+      selectedPartner: null, // New data property
       partners: partnersData
     };
   },
@@ -46,12 +52,14 @@ export default {
   },
   methods: {
     handleSearch() {
+      this.selectedPartner = null; // Reset selectedPartner when search query changes
       this.$emit("search", this.searchQuery);
       this.showSuggestions = true;
     },
     selectSuggestion(suggestion) {
       this.searchQuery = suggestion;
-      this.hideSuggestions();
+      this.selectedPartner = this.partners.find(partner => partner.name.toLowerCase() === suggestion.toLowerCase());
+      this.showSuggestions = false;
     },
     hideSuggestions() {
       setTimeout(() => {
@@ -62,8 +70,57 @@ export default {
 };
 </script>
 
+
 <style scoped>
-/* ... Existing styles ... */
+.search-filter-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.autocomplete-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
 
 .no-results-message {
   text-align: center;
