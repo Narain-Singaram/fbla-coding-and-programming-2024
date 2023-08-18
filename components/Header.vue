@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <h1>site</h1>
+  <div class="flex">
+    <NuxtLink to="/"><h1 class="text-lg">[site name]</h1></NuxtLink>
   </div>
 </template>

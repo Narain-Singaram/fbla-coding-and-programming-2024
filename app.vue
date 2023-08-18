@@ -1,5 +1,8 @@
 <template>
   <div>
+    <header>
+      <Header />
+    </header>
     <h1>Local Partners Information</h1>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
