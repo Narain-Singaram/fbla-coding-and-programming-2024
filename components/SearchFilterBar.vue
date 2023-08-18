@@ -68,7 +68,8 @@ function hideSuggestions() {
 
 .search-input-wrapper {
   position: relative;
-  width: 100%;
+  width: 80em;
+  margin: 1em;
 }
 
 .search-input {
