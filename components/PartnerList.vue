@@ -60,7 +60,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="partner in partners" :key="partner.id">
+        <tr v-for="partner in props.partners" :key="partner.id">
           <td class="border px-4 py-2">{{ partner.name }}</td>
           <td class="border px-4 py-2">{{ partner.type }}</td>
           <td class="border px-4 py-2">{{ partner.contact }}</td>
@@ -71,6 +71,9 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute();
+const router = useRouter();
+
 const props = defineProps({
   partners: {
     type: Array<any>,
@@ -78,9 +81,10 @@ const props = defineProps({
   },
 });
 
-const viewMode = ref("grid");
+const viewMode = ref(route.query.view ? route.query.view : "grid");
 
 function changeView(mode: string) {
+  router.replace({ query: { view: mode } });
   viewMode.value = mode;
 }
 </script>
