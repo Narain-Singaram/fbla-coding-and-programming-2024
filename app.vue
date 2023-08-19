@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-[#19212B]">
     <header>
       <Header />
     </header>
