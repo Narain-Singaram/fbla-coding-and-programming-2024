@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-[#1D3134] p-8 m-4 rounded-2xl">
-      <h2 class="flex-grow text-3xl mb-6 font-bold text-emerald-300">Partners</h2>
+  <div class="bg-slate-200 p-8 m-4 rounded-2xl">
+      <h2 class="flex-grow text-3xl mb-6 font-bold text-indigo-500">Partners</h2>
     <div class="flex items-center mb-4 space-x-4">
-      <button @click="changeView('grid')" :class="{ 'text-emerald-400 font-semibold underline': viewMode === 'grid' }">Grid</button>
-      <button @click="changeView('list')" :class="{ 'text-emerald-400 font-semibold underline': viewMode === 'list' }">List View</button>
-      <button @click="changeView('card')" :class="{ 'text-emerald-400 font-semibold underline': viewMode === 'card' }">Card</button>
-      <button @click="changeView('table')" :class="{ 'text-emerald-400 font-semibold underline': viewMode === 'table' }">Table</button>
+      <button @click="changeView('grid')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'grid' }">Grid</button>
+      <button @click="changeView('list')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'list' }">List View</button>
+      <button @click="changeView('card')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'card' }">Card</button>
+      <button @click="changeView('table')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'table' }">Table</button>
     </div>
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in partners" :key="partner.id" class="bg-[#1D3134] rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] p-4">
+      <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] p-4">
         <!-- Content for Grid View -->
         <h3 class="text-xl font-semibold">{{ partner.name }}</h3>
         <p class="text-gray-600 mt-2">Type: {{ partner.type }}</p>

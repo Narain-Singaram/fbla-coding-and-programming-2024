@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#19212B]">
+  <div class="bg-slate-50">
     <header>
       <Header />
     </header>
@@ -29,5 +29,11 @@ function performSearch(query: string) {
   searchQuery.value = query;
 }
 </script>
+
+<style>
+  html {
+    font-family: 'Open Sans' !important;
+  }
+</style>
 
 
