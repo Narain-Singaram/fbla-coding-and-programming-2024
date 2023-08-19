@@ -1,10 +1,11 @@
 <template>
   <div class="bg-slate-100 p-8 m-4 rounded-2xl">
+      <h2 class="flex-grow text-3xl mb-6 font-bold text-gray-800">Partners</h2>
     <div class="flex items-center mb-4 space-x-4">
-      <button @click="changeView('grid')" :class="{ 'font-semibold': viewMode === 'grid' }">Grid View</button>
-      <button @click="changeView('list')" :class="{ 'font-semibold': viewMode === 'list' }">List View</button>
-      <button @click="changeView('card')" :class="{ 'font-semibold': viewMode === 'card' }">Card View</button>
-      <button @click="changeView('table')" :class="{ 'font-semibold': viewMode === 'table' }">Table View</button>
+      <button @click="changeView('grid')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'grid' }">Grid</button>
+      <button @click="changeView('list')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'list' }">List</button>
+      <button @click="changeView('card')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'card' }">Card</button>
+      <button @click="changeView('table')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'table' }">Table</button>
     </div>
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] p-4">
@@ -12,6 +13,8 @@
         <h3 class="text-xl font-semibold">{{ partner.name }}</h3>
         <p class="text-gray-600 mt-2">Type: {{ partner.type }}</p>
         <p class="text-gray-600">Contact: {{ partner.contact }}</p>
+        <p class="text-gray-600">Latitude: {{ partner.latitude }}</p>
+        <p class="text-gray-600">Longitude: {{ partner.longitude }}</p>
       </li>
     </ul>
     <ul v-else-if="viewMode === 'list'" class="space-y-4">
@@ -65,6 +68,7 @@
     </table>
   </div>
 </template>
+
 
 <script>
 export default {

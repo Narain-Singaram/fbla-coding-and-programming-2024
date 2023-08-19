@@ -9,6 +9,7 @@
 </template>
 
 <script setup lang="ts">
+import NewAddPartner from '/components/NewAddPartner.vue';
 import partnerData from "@/assets/partners.json";
 
 const partners = ref(partnerData);
