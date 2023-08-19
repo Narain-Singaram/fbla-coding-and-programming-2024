@@ -9,7 +9,7 @@
         class="search-input w-full p-2 border-2 border-gray-300 rounded-md transition duration-300 focus:ring focus:ring-blue-400 focus:border-blue-400"
         placeholder="Search partners"
       />
-      <ul v-if="showSuggestions" class="autocomplete-list absolute w-full bg-white border-2 border-gray-300 border-t-0 rounded-b-md shadow-md">
+      <ul v-if="showSuggestions" class="my-2 autocomplete-list absolute w-full bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
         <li
           v-for="suggestion in autocompleteSuggestions"
           :key="suggestion"
@@ -19,7 +19,12 @@
           {{ suggestion }}
         </li>
       </ul>
-      <p v-if="showNoResultsMessage" class="no-results-message text-center text-gray-500 mt-2">No results found.</p>
+        <div v-if="showNoResultsMessage" id="toast-simple" class="my-4 flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
+          <svg class="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"/>
+          </svg>
+          <div class="pl-4 text-sm font-normal">No Results Found</div>
+      </div>
     </div>
   </div>
 </template>

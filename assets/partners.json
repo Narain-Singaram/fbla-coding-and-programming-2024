@@ -10,5 +10,175 @@
     "name": "Community Organization B",
     "type": "Community",
     "contact": "Jane Smith"
+  },
+  {
+    "id": 3,
+    "name": "Atlanta Rotary Club",
+    "type": "Non-Profit Organization",
+    "contact": "John Smith"
+  },
+  {
+    "id": 4,
+    "name": "Boys & Girls Clubs of Metro Atlanta",
+    "type": "Non-Profit Organization",
+    "contact": "Jane Doe"
+  },
+  {
+    "id": 5,
+    "name": "Atlanta Community Food Bank",
+    "type": "Non-Profit Organization",
+    "contact": "Mary Johnson"
+  },
+  {
+    "id": 6,
+    "name": "Atlanta Humane Society",
+    "type": "Non-Profit Organization",
+    "contact": "David Williams"
+  },
+  {
+    "id": 7,
+    "name": "Atlanta Botanical Garden",
+    "type": "Non-Profit Organization",
+    "contact": "Elizabeth Brown"
+  },
+  {
+    "id": 8,
+    "name": "High Museum of Art",
+    "type": "Non-Profit Organization",
+    "contact": "Michael Jones"
+  },
+  {
+    "id": 9,
+    "name": "Atlanta Symphony Orchestra",
+    "type": "Non-Profit Organization",
+    "contact": "Sarah Smith"
+  },
+  {
+    "id": 10,
+    "name": "Atlanta Braves",
+    "type": "Professional Sports Team",
+    "contact": "Brian Snitker"
+  },
+  {
+    "id": 11,
+    "name": "Atlanta Falcons",
+    "type": "Professional Sports Team",
+    "contact": "Arthur Smith"
+  },
+  {
+    "id": 12,
+    "name": "Atlanta Hawks",
+    "type": "Professional Sports Team",
+    "contact": "Travis Schlenk"
+  },
+  {
+    "id": 13,
+    "name": "Atlanta United FC",
+    "type": "Professional Sports Team",
+    "contact": "Gabriel Heinze"
+  },
+  {
+    "id": 14,
+    "name": "The Coca-Cola Company",
+    "type": "Company",
+    "contact": "James Quincey"
+  },
+  {
+    "id": 15,
+    "name": "The Home Depot",
+    "type": "Company",
+    "contact": "Craig Menear"
+  },
+  {
+    "id": 16,
+    "name": "Waffle House",
+    "type": "Company",
+    "contact": "Patty Cobb"
+  },
+  {
+    "id": 17,
+    "name": "Chick-fil-A",
+    "type": "Company",
+    "contact": "Dan Cathy"
+  },
+  {
+    "id": 18,
+    "name": "Coca-Cola Roxy Theatre",
+    "type": "Venue",
+    "contact": "Troy Carter"
+  },
+  {
+    "id": 19,
+    "name": "Fox Theatre",
+    "type": "Venue",
+    "contact": "Bill Caruso"
+  },
+  {
+    "id": 20,
+    "name": "Mercedes-Benz Stadium",
+    "type": "Venue",
+    "contact": "Tom Benson"
+  },
+  {
+    "id": 21,
+    "name": "Georgia Aquarium",
+    "type": "Attraction",
+    "contact": "Randall Bolton"
+  },
+
+  {
+    "id": 22,
+    "name": "Zoo Atlanta",
+    "type": "Attraction",
+    "contact": "Samantha Turner"
+  },
+  {
+    "id": 23,
+    "name": "Piedmont Park",
+    "type": "Park",
+    "contact": "Alex Roberts"
+  },
+  {
+    "id": 24,
+    "name": "Martin Luther King Jr. National Historic Site",
+    "type": "Historic Site",
+    "contact": "Karen Lewis"
+  },
+  {
+    "id": 25,
+    "name": "Emory University",
+    "type": "Educational Institution",
+    "contact": "John Anderson"
+  },
+  {
+    "id": 26,
+    "name": "Georgia State University",
+    "type": "Educational Institution",
+    "contact": "Emily Garcia"
+  },
+  {
+    "id": 27,
+    "name": "Georgia Institute of Technology",
+    "type": "Educational Institution",
+    "contact": "Robert Clark"
+  },
+  {
+    "id": 28,
+    "name": "Atlanta Public Schools",
+    "type": "Educational Institution",
+    "contact": "Lisa Johnson"
+  },
+  {
+    "id": 29,
+    "name": "The Carter Center",
+    "type": "Non-Profit Organization",
+    "contact": "Jessica Adams"
+  },
+  {
+    "id": 30,
+    "name": "Atlanta History Center",
+    "type": "Museum",
+    "contact": "Mark Thompson"
   }
+
 ]

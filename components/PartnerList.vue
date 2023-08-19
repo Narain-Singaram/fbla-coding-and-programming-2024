@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 p-6">
+  <div class="bg-slate-100 p-8 m-4 rounded-2xl">
     <div class="flex items-center mb-4 space-x-4">
       <button @click="changeView('grid')" :class="{ 'font-semibold': viewMode === 'grid' }">Grid View</button>
       <button @click="changeView('list')" :class="{ 'font-semibold': viewMode === 'list' }">List View</button>
@@ -7,7 +7,7 @@
       <button @click="changeView('table')" :class="{ 'font-semibold': viewMode === 'table' }">Table View</button>
     </div>
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-lg shadow-md p-4">
+      <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] p-4">
         <!-- Content for Grid View -->
         <h3 class="text-xl font-semibold">{{ partner.name }}</h3>
         <p class="text-gray-600 mt-2">Type: {{ partner.type }}</p>
