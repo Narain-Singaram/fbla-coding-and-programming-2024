@@ -66,20 +66,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    partners: Array
+<script setup lang="ts">
+const props = defineProps({
+  partners: {
+    type: Array<any>,
+    required: true,
   },
-  data() {
-    return {
-      viewMode: 'grid'
-    };
-  },
-  methods: {
-    changeView(mode) {
-      this.viewMode = mode;
-    }
-  }
-};
+});
+
+const viewMode = ref("grid");
+
+function changeView(mode: string) {
+  viewMode.value = mode;
+}
 </script>
