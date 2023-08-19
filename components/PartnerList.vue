@@ -3,7 +3,7 @@
       <h2 class="flex-grow text-3xl mb-6 font-bold text-gray-800">Partners</h2>
     <div class="flex items-center mb-4 space-x-4">
       <button @click="changeView('grid')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'grid' }">Grid</button>
-      <button @click="changeView('list')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'list' }">List</button>
+      <button @click="changeView('list')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'list' }">List View</button>
       <button @click="changeView('card')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'card' }">Card</button>
       <button @click="changeView('table')" :class="{ 'text-green-500 font-semibold underline': viewMode === 'table' }">Table</button>
     </div>
