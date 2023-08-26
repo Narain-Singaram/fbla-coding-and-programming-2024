@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-theme="synthwave">
     <h1>Local Partners Information</h1>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />

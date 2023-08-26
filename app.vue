@@ -1,10 +1,11 @@
 <template>
-  <div class="bg-slate-50">
+  <div data-theme="night">
     <header>
       <Header />
     </header>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
+    <Chatbot />
   </div>
 </template>
 
@@ -32,7 +33,7 @@ function performSearch(query: string) {
 
 <style>
   html {
-    font-family: 'Open Sans' !important;
+    font-family: "IBM Plex Sans" !important;
   }
 </style>
 

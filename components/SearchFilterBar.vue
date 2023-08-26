@@ -1,13 +1,14 @@
 <template>
   <div class="search-filter-bar flex flex-col items-center">
     <div class="search-input-wrapper relative w-80 my-4">
-      <input
+      <input         
         v-model="searchQuery"
         @input="handleSearch"
         @focus="showSuggestions = true"
-        @blur="hideSuggestions"
-        class="search-input w-full p-2 border-2 border-gray-300 rounded-md transition duration-300 focus:ring focus:ring-blue-400 focus:border-blue-400"
-        placeholder="Search partners"
+        @blur="hideSuggestions" 
+        type="text" 
+        placeholder="Type here" 
+        class="input input-bordered input-primary w-full max-w-xs"
       />
       <ul v-if="showSuggestions" class="my-2 autocomplete-list absolute w-full bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
         <li

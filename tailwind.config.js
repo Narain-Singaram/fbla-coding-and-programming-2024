@@ -1,4 +1,9 @@
 module.exports = {
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["synthwave", "cupcake", "night"], // Set the theme to "synthwave"
+    // ... other daisyui options
+  },
   theme: {
     extend: {
       colors: {
@@ -8,5 +13,5 @@ module.exports = {
       },
     },
   },
-}
-
+  // ... other configuration options
+};

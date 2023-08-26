@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-slate-200 p-8 m-4 rounded-2xl">
+  <div class="bg-neutral p-8 m-4 rounded-2xl">
       <h2 class="flex-grow text-3xl mb-6 font-bold text-indigo-500">Partners</h2>
     <div class="flex items-center mb-4 space-x-4">
       <button @click="changeView('grid')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'grid' }">Grid</button>
@@ -7,8 +7,9 @@
       <button @click="changeView('card')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'card' }">Card</button>
       <button @click="changeView('table')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'table' }">Table</button>
     </div>
+    
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] p-4">
+      <li v-for="partner in partners" :key="partner.id" class="bg-neutral-focus rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] p-4">
         <!-- Content for Grid View -->
         <h3 class="text-xl font-semibold">{{ partner.name }}</h3>
         <p class="text-gray-600 mt-2">Type: {{ partner.type }}</p>
@@ -50,22 +51,34 @@
       </li>
     </ul>
     <!-- Table view -->
-    <table v-else-if="viewMode === 'table'" class="table-auto w-full">
-      <thead>
-        <tr>
-          <th class="px-4 py-2">Name</th>
-          <th class="px-4 py-2">Type</th>
-          <th class="px-4 py-2">Contact</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="partner in partners" :key="partner.id">
-          <td class="border px-4 py-2">{{ partner.name }}</td>
-          <td class="border px-4 py-2">{{ partner.type }}</td>
-          <td class="border px-4 py-2">{{ partner.contact }}</td>
-        </tr>
-      </tbody>
-    </table>
+<table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
+  <thead class="bg-gray-100">
+    <tr>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Name
+      </th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Type
+      </th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Contact
+      </th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <tr v-for="partner in partners" :key="partner.id">
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-900">{{ partner.name }}</div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-500">{{ partner.type }}</div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-500">{{ partner.contact }}</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </div>
 </template>
 
