@@ -7,10 +7,10 @@
         @focus="showSuggestions = true"
         @blur="hideSuggestions" 
         type="text" 
-        placeholder="Type here" 
-        class="input input-bordered input-primary w-full max-w-xs"
+        placeholder="Search through Partner Businesses and Organizations..." 
+        class="input bg-neutral-focus transition hover:input-primary w-full max-w-xs rounded-full"
       />
-      <ul v-if="showSuggestions" class="my-2 autocomplete-list absolute w-full bg-white rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+      <ul v-if="showSuggestions" class="my-4 p-2 autocomplete-list absolute w-full bg-primary-content text-info rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
         <li
           v-for="suggestion in autocompleteSuggestions"
           :key="suggestion"

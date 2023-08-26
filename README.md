@@ -22,3 +22,7 @@
 
 - and improve the ui using a nuxt tempalte possibly?
 
+- BE able to export search results as a csv or pdf
+
+- ABILITY to have lazy loading of content with skeletons
+
