@@ -1,16 +1,33 @@
 <template>
   <div class="search-filter-bar flex flex-col items-center">
     <div class="search-input-wrapper relative w-80 my-4">
-      <input         
+      <div class="input-icon absolute inset-y-0 left-3 flex items-center">
+    <svg
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={3}
+      viewBox="0 0 24 24"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="M17 10 A7 7 0 0 1 10 17 A7 7 0 0 1 3 10 A7 7 0 0 1 17 10 z" />
+      <path d="M21 21l-6-6" />
+    </svg>
+      </div>
+      <input
         v-model="searchQuery"
         @input="handleSearch"
         @focus="showSuggestions = true"
-        @blur="hideSuggestions" 
-        type="text" 
-        placeholder="Search through Partner Businesses and Organizations..." 
-        class="input bg-neutral-focus transition hover:input-primary w-full max-w-xs rounded-full"
+        @blur="hideSuggestions"
+        type="text"
+        placeholder="Search for Businesses"
+        class="input bg-neutral-focus transition hover:input-primary w-full max-w-xs rounded-full pl-10"
       />
-      <ul v-if="showSuggestions" class="my-4 p-2 autocomplete-list absolute w-full bg-primary-content text-info rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+      <ul v-if="showSuggestions" class="my-4 autocomplete-list absolute w-full bg-neutral-focus rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
         <li
           v-for="suggestion in autocompleteSuggestions"
           :key="suggestion"
